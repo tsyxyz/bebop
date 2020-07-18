@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<package>
+  <name>bebop</name>
+  <version>0.0.1</version>
+  <description>Bebop metapackage</description>
+  
+  <author>tsyxyz</author>
+  <maintainer email="tsyxyz@hotmail.com">tsyxyz</maintainer>
+
+  <author email="tsyxyz@hotmail.com">tsyxyz</author>
+
+  <license>MIT</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>bebop_sensor</run_depend>
+  <run_depend>bebop_perception</run_depend>
+  <run_depend>bebop_planning</run_depend>
+  <run_depend>bebop_control</run_depend>
+  <run_depend>bebop_localization</run_depend>
+
+  <run_depend>bebop_sensor_msgs</run_depend>
+  <run_depend>bebop_perception_msgs</run_depend>
+  <run_depend>bebop_planning_msgs</run_depend>
+  <run_depend>bebop_control_msgs</run_depend>
+  <run_depend>bebop_localization_msgs</run_depend>
+  
+  <run_depend>bebop_arduino</run_depend>
+  <run_depend>bebop_tools</run_depend>
+
+  <export>
+    <metapackage />
+  </export>
+
+</package>
