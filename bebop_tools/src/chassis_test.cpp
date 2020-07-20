@@ -5,7 +5,7 @@
 #include "bebop_msgs/topic.h"
 
 DEFINE_double(steer, 0, "steer angle in rad, <0 left, >0 right");
-DEFINE_double(velocity, 0, "velocity in m/s, <0 backward, >0 forward");
+DEFINE_double(throttle, 0, "throttle, <0 backward, >0 forward");
 
 int main(int argc, char** argv) {
     google::ParseCommandLineFlags(&argc, &argv, false);
@@ -20,9 +20,9 @@ int main(int argc, char** argv) {
     while (ros::ok()) {
         cmd.header.stamp = ros::Time::now();
         cmd.steer = FLAGS_steer;
-        cmd.velocity = FLAGS_velocity;
+        cmd.throttle = FLAGS_throttle;
         cmd_pub.publish(cmd);
-        ROS_INFO("Pub ChassisCmd, steer %f, velocity %f", cmd.steer, cmd.velocity);
+        ROS_INFO("Pub ChassisCmd, steer %f, throttle %f", cmd.steer, cmd.throttle);
 
         ros::spinOnce();
         loop_rate.sleep();

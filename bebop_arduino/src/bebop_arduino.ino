@@ -19,9 +19,9 @@ void OnChassisCmd(const bebop_control_msgs::ChassisCmd& cmd) {
                     bebop_control_msgs::ChassisCmd::MIN_STEER,
                     bebop_control_msgs::ChassisCmd::MAX_STEER,
                     0, 180);
-    esc_val = map(cmd.velocity,
-                  bebop_control_msgs::ChassisCmd::MIN_VELOCITY,
-                  bebop_control_msgs::ChassisCmd::MAX_VELOCITY,
+    esc_val = map(cmd.throttle,
+                  bebop_control_msgs::ChassisCmd::MIN_THROTTLE,
+                  bebop_control_msgs::ChassisCmd::MAX_THROTTLE,
                   1000, 2000);
 }
 
