@@ -19,11 +19,7 @@
   <run_depend>bebop_control</run_depend>
   <run_depend>bebop_localization</run_depend>
 
-  <run_depend>bebop_sensor_msgs</run_depend>
-  <run_depend>bebop_perception_msgs</run_depend>
-  <run_depend>bebop_planning_msgs</run_depend>
-  <run_depend>bebop_control_msgs</run_depend>
-  <run_depend>bebop_localization_msgs</run_depend>
+  <run_depend>bebop_msgs</run_depend>
   
   <run_depend>bebop_arduino</run_depend>
   <run_depend>bebop_tools</run_depend>

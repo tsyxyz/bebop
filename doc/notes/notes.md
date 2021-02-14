@@ -22,3 +22,25 @@
 
 补充：电调1ms停转，2ms满油门运转，是指的单向电调，且是方波脉冲。而一般双向电调，1ms反转最大油门，1.5油门中点，2ms满油门正转。
 ```
+
+razor_imu --USB--> TX2
+TX2 --USB--> arduino --> chassis
+calibration: throttle -- velocity, front wheel -- steer
+
+与消息直接相关的常量，比如路径点的数量，消息枚举值等，放在相关.msg里定义；与消息不直接相关的放在各领域自己的头文件里；
+对于放在领域头文件里定义的常量，在arduino里没法访问；在消息里定义的常量，arduino可以访问。
+
+经常要改的，不稳定的参数，不要放在头文件里作为常量定义，而是放在.yaml配置文件里，通过rosparam访问。
+
+servo和ESC的PWM cycle值，是在control里计算，还是放在arduino里？：为了调试方便，尽量少在arduino里操作，因此还是放在conrol里。
+
+对于servo和ESC的限值，在control的头文件里定义，因为PWM cycle在control里计算，arduino端不需要知道这些限值。
+
+工程里通过catkin编译arduino文件，如果依赖自定义的文件，需要安装ros时"sudo rosdep init"和"rosdep update"执行过。
+如果"sudo rosdep init"和"rosdep update"执行失败，可以参考[这里](https://blog.csdn.net/qq_42127861/article/details/106998969)，打开`/etc/resolv.conf`，将默认的`nameserver 127.0.0.53`注释掉，并添加
+```
+nameserver 8.8.8.8 #google域名服务器
+nameserver 8.8.4.4 #google域名服务器
+```
+
+当前通过catkin_make编译arduino文件还有问题，bebop_arduino生成ros_lib时，没法生成ChassisCmd.h，即使在bebop_arduino/CMakeLists.txt里add_dependencies也不行；当前只能通过catkin_make_isolated。

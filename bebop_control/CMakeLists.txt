@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(bebop_tools)
+project(bebop_control)
 
 set(CMAKE_CXX_STANDARD 11)
 
@@ -7,7 +7,6 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
-  
   bebop_msgs
 )
 
@@ -21,5 +20,4 @@ include_directories(
   ${CMAKE_CURRENT_SOURCE_DIR}/../bebop_msgs/include
 )
 
-add_executable(chassis_test src/chassis_test.cpp)
-target_link_libraries(chassis_test ${catkin_LIBRARIES} gflags)
+# add_executable()
